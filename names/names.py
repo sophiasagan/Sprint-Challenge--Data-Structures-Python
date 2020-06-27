@@ -79,7 +79,7 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-duplicates = []  # Return the list of duplicates in this data structure
+# duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
 # for name_1 in names_1:
@@ -88,13 +88,16 @@ duplicates = []  # Return the list of duplicates in this data structure
 #             duplicates.append(name_1)
 
 
-bst = BSTNode('name_dups') # create a new binary search tree 
+# bst = BSTNode('name_dups') # create a new binary search tree 
 
-for name_1 in names_1:  # iterate through the first list of name
-    bst.insert(name_1) # insert names into newly created tree
-for name_2 in names_2: # iterate throught the second list of names
-    if bst.contains(name_2) == True: # if name equals name is first list
-        duplicates.append(name_2) # append it to the list
+# for name_1 in names_1:  # iterate through the first list of name
+#     bst.insert(name_1) # insert names into newly created tree
+# for name_2 in names_2: # iterate throught the second list of names
+#     if bst.contains(name_2) == True: # if name equals name is first list
+#         duplicates.append(name_2) # append it to the list
+
+
+duplicates = list(set(names_1) & (set(names_2)))
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
@@ -148,3 +151,29 @@ print (f"runtime: {end_time - start_time} seconds")
 
 
 # runtime: 0.08003449440002441 seconds
+
+
+#STRETCH Solution Using: 
+'''duplicates = list(set(names_1) & (set(names_2)))''' #built-in function: intersection(), set()
+
+# 64 duplicates:
+
+# Piper Hamilton, Selah Hansen, Josie Cole, Nathalie Little, Jaydin Sawyer, Diego Chaney, Hayley Morgan, Eden Howe, Hallie Vazquez, Ahmad Watts, Giancarlo Warren, Trace Gates, Raven Christensen, Josie Dawson, Ralph Roth, Lennon Hunt, Davion Arias, Camryn Doyle, Justine Soto, Kale Sawyer, Malcolm Tucker, Zara Suarez, Ashlee Randall, Nelson Acevedo, Dulce Hines, Grace Bridges, Abel Newman, Devyn Aguirre, Daphne Hamilton, Andre Carrillo, Alvaro Robbins, William Maldonado, Ali Collier, Megan Porter, Aydan Calderon, Malcolm Nelson, Luciana Ford, Jordin Schneider, Logan Morrow, Leon Cochran, Maliyah Serrano, Amiah Hobbs, Winston Austin, Leia Foley, Irvin Krause, Salma Meza, Aleah Valentine, Clay Wilkinson, River Johnson, Kameron Osborne, Carsen Tyler, Franklin Cooper, Jaden Hawkins, Cloe Norris, Victoria Roach, Sanai Harrison, Peyton Lloyd, Marisol Morris, Marley Rivers, Pablo Berg, Carley Gallegos, Addison Clarke, Dashawn Green, 
+# Jadyn Mays
+
+
+# runtime: 0.00500035285949707 seconds
+
+# STRETCH solution run 2:
+
+# 64 duplicates:
+
+# Nelson Acevedo, Dashawn Green, Devyn Aguirre, William Maldonado, Leon Cochran, Justine Soto, Ashlee Randall, Raven Christensen, Jaydin Sawyer, Carsen Tyler, Addison Clarke, Daphne Hamilton, Abel Newman, Pablo Berg, River Johnson, Andre Carrillo, Franklin Cooper, Sanai Harrison, Giancarlo Warren, Logan Morrow, Jordin Schneider, Alvaro Robbins, Jaden 
+# Hawkins, Maliyah Serrano, Clay Wilkinson, Aydan Calderon, Malcolm Tucker, Hayley Morgan, Carley Gallegos, Marisol Morris, Malcolm Nelson, Hallie Vazquez, Luciana Ford, Cloe Norris, Grace Bridges, Josie Cole, Jadyn Mays, Irvin Krause, 
+# Peyton Lloyd, Leia Foley, Diego Chaney, Ahmad Watts, Dulce Hines, Josie Dawson, Camryn Doyle, Amiah Hobbs, Davion Arias, Nathalie Little, Winston Austin, Trace Gates, Salma Meza, Ali Collier, Selah Hansen, Piper Hamilton, Lennon Hunt, Ralph Roth, Victoria Roach, Marley Rivers, Zara Suarez, Eden Howe, Kale Sawyer, Kameron Osborne, Megan Porter, Aleah Valentine
+
+
+# runtime: 0.003999471664428711 seconds
+
+
+
